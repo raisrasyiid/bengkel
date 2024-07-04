@@ -67,4 +67,12 @@ class Model_auth extends CI_Model{
         $this->db->update($table, $data);
     }
 
+    public function get_all_booking_data() {
+        $this->db->select('booking.*, users.nama_user as nama_user, users.no_hp_user as no_hp_user');
+        $this->db->from('booking');
+        $this->db->join('users', 'booking.id_user = users.id_user');
+        $this->db->order_by('tgl_book', 'ASC'); // Order by date
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
