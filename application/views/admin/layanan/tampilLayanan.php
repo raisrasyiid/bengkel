@@ -12,20 +12,6 @@
             <i class="fa fa-bars"></i>
         </button>
 
-        <!-- Topbar Search -->
-        <!-- <form
-            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                    aria-label="Search" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                    </button>
-                </div>
-            </div>
-        </form> -->
-
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
 
@@ -96,13 +82,13 @@
                         <tbody>
                             <?php $no = 1; foreach($layanan as $val){?>
                                 <tr>
-                                    <td style="text-align:center"> <?php echo $no; ?></td>
-                                    <td style="text-align:center"> <?php echo $val->nama_layanan; ?></td>
-                                    <td style="text-align:center"> <?php echo $val->deskripsi_layanan; ?></td>
-                                    <td style="text-align:center"> <?php echo $val->harga_layanan; ?></td>
-                                    <td style="text-align:center"> <?php echo $val->foto_layanan; ?></td>
+                                    <td style="text-align:center"><?php echo $no; ?></td>
+                                    <td style="text-align:center"><?php echo $val->nama_layanan; ?></td>
+                                    <td style="text-align:center"><?php echo $val->deskripsi_layanan; ?></td>
+                                    <td style="text-align:center"><?php echo $val->harga_layanan; ?></td>
+                                    <td style="text-align:center"><img src="<?php echo base_url('assets/foto_layanan/'.$val->foto_layanan); ?>" width="150"></td>
                                     <td class="project-actions text-center">
-                                        <a class="btn btn-warning btn-sm" href="<?php echo site_url('layanan/edit/'.$val->id_layanan)?>">
+                                        <a class="btn btn-warning btn-sm" href="<?php echo site_url('layanan/get_by_id/'.$val->id_layanan)?>">
                                             <i class="fas fa-edit"></i>Edit</a>
                                         <a class="btn btn-danger btn-sm" href="<?php echo site_url('layanan/delete/'.$val->id_layanan)?>" onclick="return confirm('Yakin Akan Hapus Data Ini?')">
                                             <i class="fas fa-trash"></i>Delete</a>

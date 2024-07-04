@@ -32,7 +32,16 @@
                 </div>
             </li>
 
+            <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <h6 class="text-dark">Nama Desa : <b><?php echo $this->session->userdata('nama_desa') ?></b> </h6>
+                <span class="mr-2 d-none d-lg-inline text-grey-600 small"></span>
+            </a>
+        </li>
+
             <div class="topbar-divider d-none d-sm-block"></div>
+
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,47 +78,53 @@
 <!-- Contact Start -->
 <div class="container-fluid">
     <div class="latest-product__text mb-4">
-        <h4 class="section-title px-5">Form Tambah Layanan</h4>
-        <p class="mb-4 px-5">Halaman tambah layanan untuk menambah data layanan yang kemudian akan ditampilkan ke halaman home sehingga informasi pada blog dapat dilihat oleh pelanggan yang ingin melihat konten edukasi.</p>
+        <h4 class="section-title px-5">Form Edit Layanan</h4>
+        <p class="mb-4 px-5">Halaman edit layanan untuk menambah data layanan yang kemudian akan ditampilkan ke halaman home sehingga informasi pada blog dapat dilihat oleh pelanggan yang ingin melihat konten edukasi.</p>
     </div>
     <div class="row px-xl-5">
         <div class="col-lg-7 mb-5">
             <div class="contact-form">
-                <form name="sentMessage" method="post" action="<?php echo site_url('layanan/save'); ?>" enctype="multipart/form-data" autocomplete="off">
+            <form name="sentMessage" method="post" action="<?php echo site_url('layanan/edit/'.$layanan->id_layanan);?>" enctype="multipart/form-data" autocomplete="off">
                 <?php if($this->session->flashdata('layanan')): ?>
                     <?php echo $this->session->flashdata('layanan');?>    
-                    <?php endif; ?>
+                <?php endif; ?>
                 <div class="control-group">
-                        <label>Nama Layanan</label>
-                        <input type="text" class="form-control" id="nama_layanan" name="nama_layanan" placeholder="nama layanan" autofocus required="required" data-validation-required-message="Please enter your nik" />
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="control-group">
-                        <label>Deskripsi</label>
-                        <input type="text" class="form-control" id="deskripsi" name="deskripsi_layanan" placeholder="deskripsi" autofocus required="required" data-validation-required-message="Please enter your nik" />
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="control-group">
-                        <label>Harga Layanan</label>
-                        <input type="text" class="form-control" id="harga_layanan" name="harga_layanan" placeholder="harga layanan" autofocus required="required" data-validation-required-message="Please enter your nik" />
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="control-group">
-                        <label>gambar</label>
-                        <input type="file" class="form-control" id="foto_layanan" name="foto_layanan" placeholder="foto_layanan" autofocus required="required" data-validation-required-message="Please enter your name" />
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <br>
-                    <div>
-                        <button class="btn bnt-sm btn-info float-left" type="submit" id="sendMessageButton">Simpan</button>
-                        <button onClick="goBack()".GoBack  class="btn btn-danger"> Kembali</button>
-                        <script>
-                        function goBack() {
-                            window.history.back();
-                        }
-                        </script>
-                    </div>
-                </form>
+                    <label>Nama Layanan</label>
+                    <input type="text" class="form-control" value="<?php echo $layanan->nama_layanan; ?>" id="nama_layanan" name="nama_layanan" placeholder="nama layanan" autofocus required="required" data-validation-required-message="Please enter your nama layanan" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <label>Deskripsi</label>
+                    <input type="text" class="form-control" value="<?php echo $layanan->deskripsi_layanan; ?>" id="deskripsi" name="deskripsi_layanan" placeholder="deskripsi" autofocus required="required" data-validation-required-message="Please enter your deskripsi layanan" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <label>Harga Layanan</label>
+                    <input type="text" class="form-control" value="<?php echo $layanan->harga_layanan; ?>" id="harga_layanan" name="harga_layanan" placeholder="harga layanan" autofocus required="required" data-validation-required-message="Please enter your harga layanan" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div>
+                    <img src="<?php echo base_url('assets/foto_layanan/' . $layanan->foto_layanan);?>" alt="gambar" width="100" height="100">
+                </div>
+                <div class="control-group">
+                    <label>Gambar</label>
+                    <!-- Tambahkan input file untuk mengunggah gambar baru -->
+                    <input type="file" class="form-control" id="foto_layanan" name="foto_layanan" autofocus>
+                    <!-- Tambahkan input tersembunyi untuk menyimpan nama gambar yang sudah ada -->
+                    <input type="hidden" name="gambar_lama" value="<?php echo $layanan->foto_layanan; ?>">
+                    <p class="help-block text-danger"></p>
+                </div>
+                <br>
+                <div>
+                    <button class="btn bnt-sm btn-info float-left" type="submit" id="sendMessageButton">Simpan</button>
+                    <button onClick="goBack()" class="btn btn-danger">Kembali</button>
+                    <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                    </script>
+                </div>
+            </form>
             </div>
         </div>
     </div>
