@@ -47,11 +47,6 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Interface
-            </div> -->
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= site_url('user');?>">
@@ -66,19 +61,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/showTableUser');?>">
+                <a class="nav-link" href="<?= site_url('Gallery');?>">
                     <i class="fa fa-address-card"></i>
                     <span>Data Gallery</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/showTableUser');?>">
+                <a class="nav-link" href="<?= site_url('Booking');?>">
                     <i class="fas fa-bookmark"></i>
                     <span>Data Booking</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/showTableUser');?>">
+                <a class="nav-link" href="<?= site_url('Feedback');?>">
                     <i class="fas fa-comments"></i>
                     <span>Data Feedback</span>
                 </a>
