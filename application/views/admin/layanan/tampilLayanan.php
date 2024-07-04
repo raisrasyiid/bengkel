@@ -42,7 +42,7 @@
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?= site_url('admin/profile');?>">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>
@@ -96,11 +96,11 @@
                         <tbody>
                             <?php $no = 1; foreach($layanan as $val){?>
                                 <tr>
-                                    <td> <?php echo $no; ?></td>
-                                    <td> <?php echo $val->nama_layanan; ?></td>
-                                    <td> <?php echo $val->deskripsi_layanan; ?></td>
-                                    <td> <?php echo $val->harga_layanan; ?></td>
-                                    <td> <?php echo $val->foto_layanan; ?></td>
+                                    <td style="text-align:center"> <?php echo $no; ?></td>
+                                    <td style="text-align:center"> <?php echo $val->nama_layanan; ?></td>
+                                    <td style="text-align:center"> <?php echo $val->deskripsi_layanan; ?></td>
+                                    <td style="text-align:center"> <?php echo $val->harga_layanan; ?></td>
+                                    <td style="text-align:center"> <?php echo $val->foto_layanan; ?></td>
                                     <td class="project-actions text-center">
                                         <a class="btn btn-warning btn-sm" href="<?php echo site_url('layanan/edit/'.$val->id_layanan)?>">
                                             <i class="fas fa-edit"></i>Edit</a>
