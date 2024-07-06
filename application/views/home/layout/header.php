@@ -80,12 +80,27 @@
                             <a href="#about" class="nav-item nav-link">Tentang</a>
                             <a href="#service" class="nav-item nav-link">Layanan</a>
                             <a href="#vehicle" class="nav-item nav-link">Galeri</a>
+                            <?php if($this->session->userdata('status') == 'login'): ?>
                             <a href="#booking" class="nav-item nav-link">Booking</a>
+                            <?php endif; ?>
                             <a href="#kataMereka" class="nav-item nav-link">Kata Mereka</a>
+                            <a href="#kontakKami" class="nav-item nav-link">Kontak Kami</a>
                         </div>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+                        <?php if($this->session->userdata('status') == 'login'): ?>
+                            <a href="<?=site_url('main/profile')?>" class="btn btn-secondary rounded-pill">
+                                <span class="d-none d-md-inline"><i class="fas fa-user"></i></span>
+                            </a>
+                            <a href="<?=site_url('main/logout')?>" class=" btn btn-danger rounded-5 mx-2">
+                                <span class="d-none d-md-inline">Keluar</span>
+                            </a>
+                        <?php else: ?>
+                            <a href="<?=site_url('main/viewLogin')?>" class="btn btn-primary rounded-pill py-2 px-4">
+                                <span class="d-none d-md-inline">Login</span>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </nav>
+                
             </div>
         </div>
         <!-- Navbar & Hero End -->
