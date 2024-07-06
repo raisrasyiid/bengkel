@@ -8,11 +8,11 @@ class Model_auth extends CI_Model{
     }
 
     //login 
-    public function cek_login($username, $password)
-    {
-        $q = $this->db->get_where('users', array('username' => $username, 'password' => $password));
+    public function cek_login_user($u, $p){
+        $q = $this->db->get_where('users', array('username'=>$u, 'password_user'=>$p));
         return $q;
     }
+
 
     //get all data
     public function get_all_data($tabel)
@@ -67,6 +67,7 @@ class Model_auth extends CI_Model{
         $this->db->update($table, $data);
     }
 
+    #ambil data booking 
     public function get_all_booking_data() {
         $this->db->select('booking.*, users.nama_user as nama_user, users.no_hp_user as no_hp_user');
         $this->db->from('booking');
@@ -75,4 +76,13 @@ class Model_auth extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+
+    #insert data booking
+    // public function insert_data_booking() {
+    //     $this->db->select('*');
+    //     $this->db->from('tbl_booking');
+    //     $this->db->join('tbl_customer', 'tbl_booking.idCustomer = tbl_customer.idCustomer');
+    //     $query = $this->db->insert();
+    //     return $query->result();
+    // }
 }
