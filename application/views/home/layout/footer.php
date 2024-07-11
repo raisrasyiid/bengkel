@@ -8,16 +8,12 @@
                                 <h4 class="text-white mb-4">About Us</h4>
                                 <p class="mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit.</p>
                             </div>
-                            <div class="position-relative">
-                                <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                                <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Subscribe</button>
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="text-white mb-4">Quick Links</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> About</a>
+                            <a href="#about"><i class="fas fa-angle-right me-2"></i> About</a>
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Cars</a>
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Car Types</a>
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Team</a>
@@ -67,13 +63,12 @@
             <div class="container">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-6 text-center text-md-start mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Jumsan Teknik</a>, All right reserved.</span>
                     </div>
                     <div class="col-md-6 text-center text-md-end text-body">
                         <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                         <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                         <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
                     </div>
                 </div>
             </div>
