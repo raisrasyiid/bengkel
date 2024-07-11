@@ -53,7 +53,7 @@
                             </div>
                             <form class="user" action="<?= site_url('main/register');?>" method="POST">
                                 <div class="form-group">
-                                    <input type="text" name="nama_user" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nama Anda">
+                                    <input type="text" name="nama_user" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nama Lengkap">
                                 </div>
                                 <?php echo form_error('nama_user', '<div class="text-danger">', '</div>'); ?>
                                 <div class="form-group">
