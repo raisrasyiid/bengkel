@@ -68,9 +68,9 @@
                         <thead>
                             <tr class="active">
                                 <th style="width: auto">No</th>
-                                <th style="text-align:center">Nama Foto</th>
-                                <th style="text-align:center">Deskripsi</th>
-                                <th style="text-align:center">Foto</th>
+                                <th style="text-align:center">Nama Koresponden</th>
+                                <th style="text-align:center">email</th>
+                                <th style="text-align:center">Keterangan</th>
                                 <th style="text-align:center">Aksi</th>
                             </tr>
                         </thead>

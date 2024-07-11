@@ -15,33 +15,21 @@ class Feedback extends CI_Controller {
         $this->load->view('admin/layout/footer');
     }
 
-    // public function add(){
-    //     $this->load->view('admin/layout/header');
-	// 	$this->load->view('admin/gallery/tambahGallery');
-	// 	$this->load->view('admin/layout/footer');
-    // }
 
-    // public function save(){
-    //     $idServices = $this->input->post('id_gallery');
-    //     $Snama = $this->input->post('nama_gallery');
-    //     $Sdeskripsi = $this->input->post('deskripsi_gallery');
-    //     $config['upload_path'] = './assets/foto_gallery/';
-    //     $config['allowed_types'] = 'jpg|png|jpeg';
-    //     $this->load->library('upload', $config);
-    //     if($this->upload->do_upload('foto_gallery')){
-    //         $data_file = $this->upload->data();
-    //         $data_insert=array(
-    //             'id_gallery' => $id_gallery,
-    //             'nama_gallery' => $Snama,
-    //             'foto_gallery' => $data_file['file_name'],
-    //             'deskripsi_gallery' => $Sdeskripsi,
-    //         );
-    //         $this->Model_auth->insert('gallery', $data_insert);
-    //         redirect('gallery');
-    //     } else {
-    //         redirect('gallery/add');
-    //     }
-    // }
+    public function save(){
+        // $idServices = $this->input->post('id_gallery');
+        $Snama = $this->input->post('nama');
+        $Semail = $this->input->post('email');
+        $Sdeskripsi = $this->input->post('text');
+            $data_insert=array(
+                // 'id_gallery' => $id_gallery,
+                'nama' => $Snama,
+                'email' => $Semail,
+                'text' => $Sdeskripsi,
+            );
+            $this->Model_auth->insert('feedback', $data_insert);
+            redirect('main');
+        }
 
     // public function get_by_id($id){
     //     $data['id_gallery'] = $id;
@@ -91,8 +79,8 @@ class Feedback extends CI_Controller {
     // }
     
 
-    // public function delete($id){
-    //     $this->Model_auth->delete('gallery', 'id_gallery', $id);
-    //     redirect('gallery');
-    // }
+    public function delete($id){
+        $this->Model_auth->delete('feedback', 'id_feedback', $id);
+        redirect('feedback');
+    }
 }
