@@ -13,39 +13,37 @@ class Admin extends CI_Controller {
         $this->load->view('admin/login');
     }
 
-    public function login()
-{
-    $this->load->model('Model_auth');
-    $data_session = array();
-    $username = $this->input->post('username');
-    $password = $this->input->post('password');
+    public function login(){
+        $this->load->model('Model_auth');
+        $data_session = array();
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
 
-    // Ambil data pengguna berdasarkan username
-    $admin = $this->Model_auth->get_where('admin', array('username' => $username));
+        // Ambil data pengguna berdasarkan username
+        $admin = $this->Model_auth->get_where('admin', array('username' => $username));
 
-    if ($admin !== false) {
-        $user = $admin[0]; // Mengambil baris pertama dari hasil query
-        // Verifikasi password
-        if (password_verify($password, $user->password)) {
-            $data_session = array(
-                'id_admin' => $user->id_admin,
-                'username' => $user->username,
-            );
-            $this->session->set_userdata($data_session);
-            redirect('admin/dashboard');
+        if ($admin !== false) {
+            $user = $admin[0]; // Mengambil baris pertama dari hasil query
+            // Verifikasi password
+            if (password_verify($password, $user->password)) {
+                $data_session = array(
+                    'id_admin' => $user->id_admin,
+                    'username' => $user->username,
+                );
+                $this->session->set_userdata($data_session);
+                redirect('admin/dashboard');
+            } else {
+                var_dump($user);
+                die();
+                $this->session->set_flashdata('error', 'Password salah.');
+                redirect('admin');
+            }
         } else {
-            var_dump($user);
-            die();
-            $this->session->set_flashdata('error', 'Password salah.');
+            $this->session->set_flashdata('error', 'Username tidak ditemukan.');
             redirect('admin');
         }
-    } else {
-        $this->session->set_flashdata('error', 'Username tidak ditemukan.');
-        redirect('admin');
     }
-}
     
-
     public function registerView() {
         $this->load->view('admin/register');
     }
