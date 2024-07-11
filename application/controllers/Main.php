@@ -11,12 +11,28 @@ class Main extends CI_Controller {
     }
 
     public function index() {
+        // Ambil username pengguna dari session
+        $userId = $this->session->userdata('username');
+        
+        if ($userId) {
+            $this->db->select('username, nama_user, no_hp_user');
+            $this->db->from('users');
+            $this->db->where('username', $userId);
+            $user = $this->db->get()->row();
+            $data['user'] = $user;
+        } else {
+            $data['user'] = null;
+        }
+    
+        $data['feedback'] = $this->Model_auth->get_all_data('feedback')->result();
+        $data['gallery'] = $this->Model_auth->get_all_data('gallery')->result();
         $data['layanan'] = $this->Model_auth->get_all_data('layanan')->result();
         $this->load->view('home/layout/header');
         $this->load->view('home/layout/menu', $data);
         $this->load->view('home/layout/footer');
     }
-
+    
+    
     public function viewLogin(){
         $this->load->view('home/login');
     }
@@ -37,11 +53,12 @@ class Main extends CI_Controller {
             $u = $this->input->post('username');
             $p = $this->input->post('password_user');
     
-            $cek = $this->Model_auth->cek_login_user($u, $p)->num_rows();
+            // Cek login user dan ambil data pengguna
+            $user = $this->Model_auth->cek_login_user($u, $p);
     
-            if ($cek > 0) {
+            if ($user) {
                 $data_session = array(
-                    'id_user' => $id_user,
+                    'id_user' => $user->id_user, // Pastikan id_user diambil dari hasil query
                     'username' => $u,
                     'status' => 'login'
                 );
@@ -53,6 +70,7 @@ class Main extends CI_Controller {
             }
         }
     }
+    
 
     public function register() {
         // Load form validation library
@@ -95,4 +113,14 @@ class Main extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('main');
 	}
+
+    public function profile(){
+        $this->load->view('home/layout/header');
+        $this->load->view('home/profile');
+        $this->load->view('home/layout/footer');
+    }
+
+    
+
+
 }
