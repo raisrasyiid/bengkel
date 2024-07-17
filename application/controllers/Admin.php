@@ -33,8 +33,8 @@ class Admin extends CI_Controller {
                 $this->session->set_userdata($data_session);
                 redirect('admin/dashboard');
             } else {
-                var_dump($user);
-                die();
+                // var_dump($user);
+                // die();
                 $this->session->set_flashdata('error', 'Password salah.');
                 redirect('admin');
             }
